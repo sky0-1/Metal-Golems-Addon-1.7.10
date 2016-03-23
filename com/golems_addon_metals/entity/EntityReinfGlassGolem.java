@@ -1,5 +1,7 @@
 package com.golems_addon_metals.entity;
 
+import java.util.List;
+
 import com.golems.entity.GolemBase;
 import com.golems_addon_metals.main.MetalGolems;
 
@@ -8,28 +10,25 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 
 public class EntityReinfGlassGolem extends GolemBase
-{
-	// TODO balance
-	
+{	
 	public EntityReinfGlassGolem(World world) 
 	{
-		super(world, 7.5F);
+		super(world, 8.5F);
 	}
 
 	@Override
-	protected void entityInit()
+	protected void applyTexture()
 	{
-		super.entityInit();
 		this.setTextureType(this.getGolemTexture(MetalGolems.MODID, "reinforced_glass"));
 	}
 	
 	@Override
-	protected void applyEntityAttributes() 
+	protected void applyAttributes() 
 	{
-		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(65.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.24D);
 	}
@@ -41,10 +40,10 @@ public class EntityReinfGlassGolem extends GolemBase
 	}
 
 	@Override
-	public ItemStack getGolemDrops() 
+	public void addGolemDrops(List<WeightedRandomChestContent> dropList, boolean recentlyHit, int lootingLevel)
 	{
-		int size = 1 + rand.nextInt(3);
-		return new ItemStack(Blocks.glass, size);
+		int size = 1 + rand.nextInt(3) + lootingLevel * 2;
+		GolemBase.addGuaranteedDropEntry(dropList, new ItemStack(Blocks.glass, size > 16 ? 16 : size));
 	}
 
 	@Override

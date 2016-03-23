@@ -1,6 +1,5 @@
 package com.golems_addon_metals.proxies;
 
-import com.golems.entity.GolemBase;
 import com.golems_addon_metals.entity.EntityAluminumGolem;
 import com.golems_addon_metals.entity.EntityBronzeGolem;
 import com.golems_addon_metals.entity.EntityConstantanGolem;
@@ -8,6 +7,7 @@ import com.golems_addon_metals.entity.EntityCopperGolem;
 import com.golems_addon_metals.entity.EntityElectrumGolem;
 import com.golems_addon_metals.entity.EntityEnderiumGolem;
 import com.golems_addon_metals.entity.EntityFerrousGolem;
+import com.golems_addon_metals.entity.EntityInsulatorGlassGolem;
 import com.golems_addon_metals.entity.EntityInvarGolem;
 import com.golems_addon_metals.entity.EntityLeadGolem;
 import com.golems_addon_metals.entity.EntityLumiumGolem;
@@ -21,9 +21,9 @@ import com.golems_addon_metals.entity.EntitySilverGolem;
 import com.golems_addon_metals.entity.EntitySteelGolem;
 import com.golems_addon_metals.entity.EntityTinGolem;
 import com.golems_addon_metals.entity.EntityUraniumGolem;
+import com.golems_addon_metals.entity.EntityWireCoilGolem;
 import com.golems_addon_metals.main.GAMClientEventHandler;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy 
@@ -31,37 +31,33 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerRenders()
 	{		
-		register(EntityAluminumGolem.class);
-		register(EntityBronzeGolem.class);
-		register(EntityConstantanGolem.class);
-		register(EntityCopperGolem.class);
-		register(EntityElectrumGolem.class);
-		register(EntityEnderiumGolem.class);
-		register(EntityFerrousGolem.class);
-		register(EntityInvarGolem.class);
-		register(EntityLeadGolem.class);
-		register(EntityLumiumGolem.class);
-		register(EntityMithrilGolem.class);
-		register(EntityRefinedGolem.class);
-		register(EntityReinfGlassGolem.class);
-		register(EntityReinfStoneGolem.class);
-		register(EntityShinyGolem.class);
-		register(EntitySignalumGolem.class);
-		register(EntitySilverGolem.class);
-		register(EntitySteelGolem.class);
-		register(EntityTinGolem.class);
-		register(EntityUraniumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityAluminumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityBronzeGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityConstantanGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityCopperGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityElectrumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityEnderiumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityFerrousGolem.class);
+		com.golems.proxies.ClientProxy.registerColorized(EntityInsulatorGlassGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityInvarGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityLeadGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityLumiumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityMithrilGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityRefinedGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityReinfGlassGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityReinfStoneGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityShinyGolem.class);
+		com.golems.proxies.ClientProxy.register(EntitySignalumGolem.class);
+		com.golems.proxies.ClientProxy.register(EntitySilverGolem.class);
+		com.golems.proxies.ClientProxy.register(EntitySteelGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityTinGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityWireCoilGolem.class);
+		com.golems.proxies.ClientProxy.register(EntityUraniumGolem.class);
 	}
 	
 	@Override
 	public void registerEvents()
 	{
 		MinecraftForge.EVENT_BUS.register(new GAMClientEventHandler());
-	}
-	
-	/**	Registers an entity with the RenderGolem rendering class */
-	private void register(Class<? extends GolemBase> golem)
-	{
-		RenderingRegistry.registerEntityRenderingHandler(golem, new com.golems.renders.RenderGolem());
 	}
 }

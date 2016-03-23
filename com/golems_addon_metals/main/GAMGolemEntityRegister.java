@@ -7,6 +7,7 @@ import com.golems_addon_metals.entity.EntityCopperGolem;
 import com.golems_addon_metals.entity.EntityElectrumGolem;
 import com.golems_addon_metals.entity.EntityEnderiumGolem;
 import com.golems_addon_metals.entity.EntityFerrousGolem;
+import com.golems_addon_metals.entity.EntityInsulatorGlassGolem;
 import com.golems_addon_metals.entity.EntityInvarGolem;
 import com.golems_addon_metals.entity.EntityLeadGolem;
 import com.golems_addon_metals.entity.EntityLumiumGolem;
@@ -20,6 +21,7 @@ import com.golems_addon_metals.entity.EntitySilverGolem;
 import com.golems_addon_metals.entity.EntitySteelGolem;
 import com.golems_addon_metals.entity.EntityTinGolem;
 import com.golems_addon_metals.entity.EntityUraniumGolem;
+import com.golems_addon_metals.entity.EntityWireCoilGolem;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -37,6 +39,7 @@ public class GAMGolemEntityRegister
 		register(EntityElectrumGolem.class, "golem_electrum");
 		register(EntityEnderiumGolem.class, "golem_enderium");
 		register(EntityFerrousGolem.class, "golem_ferrous");
+		register(EntityInsulatorGlassGolem.class, "golem_insulator");
 		register(EntityInvarGolem.class, "golem_invar");
 		register(EntityLeadGolem.class, "golem_lead");
 		register(EntityLumiumGolem.class, "golem_lumium");
@@ -49,6 +52,7 @@ public class GAMGolemEntityRegister
 		register(EntitySilverGolem.class, "golem_silver");
 		register(EntitySteelGolem.class, "golem_steel");
 		register(EntityTinGolem.class, "golem_tin");
+		register(EntityWireCoilGolem.class, "golem_coil");
 		register(EntityUraniumGolem.class, "golem_uranium");
 	}
 

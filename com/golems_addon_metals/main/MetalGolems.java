@@ -16,7 +16,7 @@ public class MetalGolems
 	public static final String MODID = "golems_addon_metals";
 	public static final String DEPENDENCY_MODID = "golems";
 	public static final String NAME = "Metal Golems Addon";
-	public static final String VERSION = "1.11";
+	public static final String VERSION = "1.12";
 	public static final String MCVERSION = "1.7.10";
 	public static final String CLIENT = "com." + MODID + ".proxies.ClientProxy";
 	public static final String SERVER = "com." + MODID + ".proxies.CommonProxy";
@@ -30,7 +30,8 @@ public class MetalGolems
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) 
 	{	
-		GAMConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
+		MetalConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
+		BlockInit.mainRegistry();
 		GAMGolemEntityRegister.mainRegistry();
 		proxy.registerRenders();
 	}
